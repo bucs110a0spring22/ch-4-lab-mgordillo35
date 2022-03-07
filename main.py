@@ -1,16 +1,42 @@
 import turtle
+import math
 
-########### Your Code here ##############
-# You should only have functions here
-# If you have anything outside of a function, 
-# then you do not fully understand functions
-# and should review how they work or ask for help
+def setupWindow(myWindow=None):
+  myWindow.setworldcoordinates(-360, -1, 360, 1)
+  
+def setupAxis(myTurtle=None):
+  myTurtle.down()
+  myTurtle.goto(-360,0)
+  myTurtle.goto(360,0)
+  myTurtle.up()
+  myTurtle.goto(0,2)
+  myTurtle.down()
+  myTurtle.goto(0,-2)
+  myTurtle.up()
 
+def drawSineCurve(myTurtle=None):
+  myTurtle.color("orange")
+  myTurtle.up()
+  myTurtle.goto(-360,0)
+  myTurtle.down()
+  for angle in range(-360, 360):
+    myTurtle.goto(angle, math.sin(math.radians(angle)))
+  
+def drawCosineCurve(myTurtle=None):
+  myTurtle.color("blue")
+  myTurtle.up()
+  myTurtle.goto(-360,1)
+  myTurtle.down()
+  for angle in range(-360, 360):
+    myTurtle.goto(angle, math.cos(math.radians(angle)))
 
-
-
-
-
+def drawTangentCurve(myTurtle=None):
+  myTurtle.color("red")
+  myTurtle.up()
+  myTurtle.goto(-360,0)
+  myTurtle.down()
+  for angle in range(-360, 360):
+    myTurtle.goto(angle, math.tan(math.radians(angle)))
 
 
 ##########  Do Not Alter Any Code Past Here ########
