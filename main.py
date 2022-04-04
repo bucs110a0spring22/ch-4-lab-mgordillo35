@@ -2,32 +2,62 @@ import turtle
 import math
 
 def setupWindow(myWindow=None):
-  myWindow.setworldcoordinates(-360, -50, 360, 50)
+  '''
+  sets size for window that the turtle can use
+  args: (Window) - sets coordinate for window 
+  retrun none 
+  '''
+  myWindow.setworldcoordinates(-360, -2, 360, 2)
 
-def setupAxis(myTurtle=None, x_start = 0,y_start = 0, x_end = 0, y_end = 0):
+def setupAxis(myTurtle=None):
+  '''
+  draws x and y axis
+  args: (Turtle Object) - the turtle draws the axis
+  return none
+  '''
+  myTurtle.down()
+  myTurtle.goto(-360,0)
+  myTurtle.goto(360,0)
+  myTurtle.up()
+  myTurtle.goto(0,2)
+  myTurtle.down()
+  myTurtle.goto(0,-2)
+  myTurtle.up()
+
+
+def drawSineCurve(myTurtle=None, myColor = ""):
+  '''
+  draw sine curve from -2pi to 2pi
+  args: (Turtle Object) - the turtle draws sine, (myColor) - color of turtle pen
+  Return none
+  '''
   myTurtle.pu()
-  myTurtle.goto(x_start,y_start)
-  myTurtle.pd()
-  myTurtle.goto(x_end,y_end)
-
-
-def drawSineCurve(myTurtle=None):
-  myTurtle.pu()
+  myTurtle.color(myColor)
   myTurtle.goto(-360,0)
   myTurtle.pd()
   for angle in range(-360, 360):
     myTurtle.goto(angle, math.sin(math.radians(angle)))
   myTurtle.up()
   
-def drawCosineCurve(myTurtle = None):
-  myTurtle.color("blue")
+def drawCosineCurve(myTurtle = None, myColor = ""):
+  '''
+  draw cosine curve from -2pi to 2pi
+  args: (Turtle Object) - the turtle draws sine, (myColor) - color of turtle pen 
+  Return none
+  '''
+  myTurtle.color(myColor)
   myTurtle.goto(-360,1)
   myTurtle.pd()
   for angle in range(-360, 360):
     myTurtle.goto(angle, math.cos(math.radians(angle)))
 
-def drawTangentCurve(myTurtle = None):
-  myTurtle.color("red")
+def drawTangentCurve(myTurtle = None, myColor = ""):
+  '''
+  draw tan curve from -2pi to 2pi
+  args: (Turtle Object) - the turtle draws sine, (myColor) - color of turtle pen  
+  Return none
+  '''
+  myTurtle.color(myColor)
   myTurtle.pu()
   myTurtle.goto(-360,0)
   myTurtle.pd()
@@ -35,43 +65,56 @@ def drawTangentCurve(myTurtle = None):
     myTurtle.goto(angle, math.tan(math.radians(angle)))
   myTurtle.clear()
 
-def harryPotter (turtle = None, length = None):
+def harryPotter (turtle = None):
+  '''
+  draw deathly hallow logo from Harry Potter 
+  args: (Turtle Object) - the turtle draws logo,
+  Return none 
+  '''
   dobby = turtle
-  dobby.pensize(5)
-  dobby.pu()
-  dobby.goto(0,-25)
+  dobby.goto(0,-2)
   dobby.pd()
+  dobby.goto(-180,-2)
+  dobby.goto(0,2)
+  dobby.goto(180,-2)
+  dobby.goto(0,-2)
+  dobby.circle(2)
+  dobby.goto(0,2)
   
-  for i in range(3):
-    dobby.forward(length)
-    dobby.left(120)
-    
-  dobby.forward(length/2)
-  dobby.circle(20)
-  dobby.left(90)
-  dobby.forward(55)
-
-def fan ():
+def fan():
+  '''
+  draw sine curve from -2pi to 2pi
+  args: (Turtle Object) - the turtle draws sine,
+  what type of oject, why pass it 
+  '''
   question = input("Do you know the symbol of Deathly Hallows from Harry Potter?(yes/no): ")
   if question == "yes":
-    harryPotter(turtle, 70 )
-    print("YAY")
+    harryPotter(turtle)
+    print("YAY! ")
   else:
-    print("boooo")
-    return
+      print("boooo")
+      return
+
+def cube (num_input):
+  num_input = int(input("Please input a number: "))
+  return num_input * num_input * num_input
+  
 
 def main():
-    wn = turtle.Screen()
-    wn.tracer(5)
-    dart = turtle.Turtle()
+  wn = turtle.Screen()
+  wn.tracer(5)
+  dart = turtle.Turtle()
 
-    setupWindow(wn)
-    setupAxis(dart, 0, 2, 0, -2)
-    setupAxis(dart, -360, 0, 360, 0)
-    drawSineCurve(dart)
-    drawCosineCurve(dart)
-    drawTangentCurve(dart)
-    fan()
+  setupWindow(wn)
+  setupAxis(dart, 0, 2, 0, -2)
+  setupAxis(dart, -360, 0, 360, 0)
+  drawSineCurve(dart, "purple")
+  drawCosineCurve(dart, "blue")
+  drawTangentCurve(dart, "red")
+  fan()
 
-    wn.exitonclick()
+  result = cube()
+  print(result)
+  
+  wn.exitonclick()
 main()
