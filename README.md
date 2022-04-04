@@ -1,25 +1,29 @@
 #### CS 110
-# Chapter 4 - Lab - Functions
-
-### [Assignment Description](https://docs.google.com/document/d/1V20D_upUX4MO8YmskKlRB25Yu2pCEv3-h8z4EAfrSno/edit?usp=sharing)
+# Midterm - Python Programming
 
 ***
 
 _Replace anything surrounded by the `< >` symbols._
 
 ## SUMMARY:
-For this lab, we created a window function to set up axis and created a function to draw trig waves 
+What did you clean up?:
 
-## GRACE DAYS
-Grace days used for this assignment: 5
+ - I shorten the function setUpAxis 
 
-Grace days remaining: 5/5
+Summary of function(s) added:
+
+ 2 functions added
+   - harryPorter() - draws the deathly hallow symbol
+   - fan() - if statement that calls harryporter() if they respond to the question yes = draws else = it terminates the code 
+
+Summary of Feature Added:
+- I added the deathly hallows symbol from Harry Porter <3.
 
 ## KNOWN BUGS AND INCOMPLETE PARTS:
-none
+none 
 
 ## REFERENCES:
-Chapter 4 Lab Description 
+CS Labs 
 
 ## MISCELLANEOUS COMMENTS:
-I'm not really sure if its a bug but my function draws a straight line at the beginning and I dont know how ot fix it or take it out. 
+ < Anything you would like the grader to know >
